@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Clean Modern High-Contrast Light variant */
+    --background: 210 40% 98%; /* #f8fafc */
+    --foreground: 222 47% 11%; /* #0f172a */
+    
+    --card: 0 0% 100%; /* #ffffff */
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --primary: 234 89% 56%; /* #4f46e5 - Vivid Indigo */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 40% 95%; /* #f1f5f9 */
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 210 40% 95%;
+    --muted-foreground: 215 25% 38%; /* #475569 - high contrast readable */
+    
+    --accent: 199 89% 48%; /* #0ea5e9 */
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 84% 60%; /* #ef4444 */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 85%; /* #cbd5e1 - crisp border */
+    --input: 214 32% 85%;
+    --ring: 234 89% 56%;
+    
+    --radius: 0.625rem;
+
+    --sidebar-background: 210 40% 97%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-border: 214 32% 88%;
+    --sidebar-accent: 210 40% 92%;
+  }
+
+  /* Professional High-Intensity Midnight Obsidian Dark Theme */
+  .dark, :root:not(.light) {
+    /* Deep obsidian canvas with immersive depth */
+    --background: 225 45% 6%; /* #090d16 */
+    --foreground: 210 40% 98%; /* #f8fafc - pure crisp white text */
+    
+    /* Crisp elevated cards with sharp definition */
+    --card: 224 40% 10%; /* #0f172a - rich midnight slate surface */
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 224 40% 12%; /* #141c33 */
+    --popover-foreground: 210 40% 98%;
+    
+    /* Electric Royal Indigo / Neon Blue primary */
+    --primary: 235 85% 65%; /* #6366f1 - vivid electric indigo */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 224 35% 16%; /* #192238 */
+    --secondary-foreground: 210 40% 95%;
+    
+    --muted: 224 32% 14%;
+    --muted-foreground: 217 25% 72%; /* #94a3b8 - clean, high-contrast readable secondary */
+    
+    /* High-Intensity Glowing Cyan Accent */
+    --accent: 189 94% 52%; /* #06b6d4 - electric cyan */
+    --accent-foreground: 225 45% 6%;
+    
+    --destructive: 345 88% 60%; /* #f43f5e - vibrant crimson/rose */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 224 35% 22%; /* #1e293b - crisp, visible borders */
+    --input: 224 35% 24%;
+    --ring: 235 85% 65%;
+
+    /* Deepest spatial sidebar */
+    --sidebar-background: 226 50% 4%; /* #05070d */
+    --sidebar-foreground: 215 25% 85%;
+    --sidebar-border: 224 35% 16%;
+    --sidebar-accent: 224 40% 12%;
+  }
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Solarized Card with Subtle High-Contrast Glowing Edge */
+.solar-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.solar-card:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 8px 30px -4px rgba(99, 102, 241, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Custom High-Contrast Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
